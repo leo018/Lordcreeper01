@@ -100,39 +100,44 @@ Standard Overcast Network Ruleset (oc.tc/rules)
 </filters>
 <regions>
 <!--  Spawns  -->
-<cylinder name="red_spawn" base="-1127.5,90,-38" radius="2" height="1"/>[d]
-<cylinder name="blue_spawn" base="-1127.5,90,-93.5" radius="2" height="1"/>[d]
+<cylinder name="red_spawn" base="-1127.5,90,-38" radius="2" height="1"/>
+<cylinder name="blue_spawn" base="-1127.5,90,-93.5" radius="2" height="1"/>
+<!--  They cannot jump into the map  -->
+<apply enter="protection" message="Do not jump into the map, use your endepearl instead, if you have lost it go back to your spawn and you will get another!">
+<cuboid name="blue-void" max="-1131,80,-72" min="-1124,95,-79"/>
+<cuboid name="red-void" max="-1131,80,-54" min="-1124,95,-61"/>
+</apply>
 <!--  playing field, apply the playing kit  -->
 <apply kit="playing">
-<cuboid name="playing2" max="-1182,0,13" min="-1072,35,-148"/>[d]
+<cuboid name="playing2" max="-1182,0,13" min="-1072,35,-148"/>
 </apply>
 <!--  outside of playing apply ender  -->
 <apply kit="ender">
 <negative>
-<region name="playing2"/>[d]
+<region name="playing2"/>
 </negative>
 </apply>
 <!--  if they lose it they can get another one -->
 <apply kit="ender">
-<cuboid name="blue-ender" min="-1130,89,-92" max="-1125,93,-91"/>[d]
-<cuboid name="red-ender" min="-1124,89,-39" max="-1130,93,-41"/>[d]
+<cuboid name="blue-ender" min="-1130,89,-92" max="-1125,93,-91"/>
+<cuboid name="red-ender" min="-1124,89,-39" max="-1130,93,-41"/>
 </apply>
 <!--  Apply global block protection  -->
 <apply block="protection">
 <negative>
-<cuboid name="playing2" max="-1178,35,-142" min="-1078,0,9"/>[d]
+<cuboid name="playing2" max="-1178,35,-142" min="-1078,0,9"/>
 </negative>
 </apply>
 </regions>
 <spawns>
-<spawn team="red" kit="red" yaw="180">[d]
+<spawn team="red" kit="red" yaw="180">
 <region name="red_spawn"/>
 </spawn>
-<spawn team="blue" kit="blue" yaw="0">[d]
+<spawn team="blue" kit="blue" yaw="0">
 <region name="blue_spawn"/>
 </spawn>
 <default>
-<cylinder base="-1127.5,-66.5" radius="2" height="0"/>[d]
+<cylinder base="-1127.5,-66.5" radius="2" height="0"/>
 </default>
 </spawns>
 <maxbuildheight>35</maxbuildheight>
