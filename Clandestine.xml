@@ -52,22 +52,23 @@
 <item slot="28">arrow</item>
 <item slot="2">iron axe</item>
 <item slot="3" enchantment="dig speed:1">diamond pickaxe</item>
-<item slot="4" amount="64" damage="2">wood</item>
-<item slot="5" amount="32">apple</item>
-<item slot="6" amount="7">gold nugget</item>
+<item slot="4" amount="32" damage="1">log</item>
+<item slot="5" amount="64">leave</item>
+<item slot="6" amount="32">steak</item>
+<item slot="7" amount="1">golden apple</item>
 <potion duration="2" amplifier="1">heal</potion>
 <potion duration="5">damage resistance</potion>
 </kit>
-<kit name="red" parents="spawn">
-<helmet color="cd0000">leather helmet</helmet>
-<chestplate color="cd0000" enchantment="protection environmental:1">leather chestplate</chestplate>
-<leggings color="cd0000">leather leggings</leggings>
-<boots color="cd0000">leather boots</boots>
+<kit name="green" parents="spawn">
+<helmet color="305721">leather helmet</helmet>
+<chestplate color="305721" enchantment="protection projectile:1">leather chestplate</chestplate>
+<leggings>chain leggins</leggings>
+<boots color="305721">leather boots</boots>
 </kit>
 <kit name="blue" parents="spawn">
 <helmet color="0066cc">leather helmet</helmet>
-<chestplate color="0066cc" enchantment="protection environmental:1">leather chestplate</chestplate>
-<leggings color="0066cc">leather leggings</leggings>
+<chestplate color="0066cc" enchantment="protection projectile:1">leather chestplate</chestplate>
+<leggings>chain leggings</leggings>
 <boots color="0066cc">leather boots</boots>
 </kit>
 </kits>
@@ -81,10 +82,8 @@
 <item>arrow</item>
 <item>leather helmet</item>
 <item>leather chestplate</item>
-<item>leather leggings</item>
+<item>chain leggings</item>
 <item>leather boots</item>
-<item>wood</item>
-<item>apple</item>
 <item>obsidian</item>
 </itemremove>
 </map>
