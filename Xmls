@@ -1,0 +1,6 @@
+touch README.md
+git init
+git add README.md
+git commit -m "xmls"
+git remote add origin https://github.com/lordcreeper01/Repositorio.git
+git push -u origin master
