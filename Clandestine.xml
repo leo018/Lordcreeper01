@@ -1,0 +1,87 @@
+<map proto="1.3.0">
+<name>Clandestine</name>
+<version>1.0.1</version>
+<objective>Break the obsidian from the enemy team's monument.</objective>
+<authors>
+<author>felipu_feliu</author>
+</authors>
+<teams>
+<team color="dark green" max="12">Green Team</team>
+<team color="blue" max="12">Blue Team</team>
+</teams>
+<maxbuildheight>20</maxbuildheight>
+<spawns>
+<spawn yaw="" team="blue" kit="blue">
+<cylinder base="-619.5,11,259.5" height="0" radius="2"/>
+</spawn>
+<spawn yaw="180" team="dark green" kit="green">
+<cylinder base="-619.5,11,349.5" height="0" radius="2"/>
+</spawn>
+<default yaw="90">
+<cylinder base="-1326,55,-130" height="0" radius="2"/>
+</default>
+</spawns>
+<destroyables name="Monument" completion="100%" materials="obsidian">
+<destroyable owner="dark_green">
+<cuboid min="" max=""/>
+</destroyable>
+<destroyable owner="red">
+<cuboid min="" max=""/>
+</destroyable>
+</destroyables>
+<regions>
+<apply block="deny-players" message="Do not break the spawns!">
+<!--  Blue Spawn -->
+<cuboid min="-1329,-205" max="-1319,-217"/>
+<!--  Green Spawn -->
+<cuboid min="-1322,-54" max="-1332,-42"/>
+</apply>
+<apply block="deny-players" message="You may not build outside of the playing field.">
+<negative>
+<region name="playable"/>
+</negative>
+</apply>
+</regions>
+<kits>
+<kit name="spawn">
+<item slot="0">stone sword</item>
+<item slot="1" enchantment="arrow infinite:1">bow</item>
+<item slot="28">arrow</item>
+<item slot="2">iron axe</item>
+<item slot="3" enchantment="dig speed:1">diamond pickaxe</item>
+<item slot="4" amount="64" damage="2">wood</item>
+<item slot="5" amount="32">apple</item>
+<item slot="6" amount="7">gold nugget</item>
+<potion duration="2" amplifier="1">heal</potion>
+<potion duration="5">damage resistance</potion>
+</kit>
+<kit name="red" parents="spawn">
+<helmet color="cd0000">leather helmet</helmet>
+<chestplate color="cd0000" enchantment="protection environmental:1">leather chestplate</chestplate>
+<leggings color="cd0000">leather leggings</leggings>
+<boots color="cd0000">leather boots</boots>
+</kit>
+<kit name="blue" parents="spawn">
+<helmet color="0066cc">leather helmet</helmet>
+<chestplate color="0066cc" enchantment="protection environmental:1">leather chestplate</chestplate>
+<leggings color="0066cc">leather leggings</leggings>
+<boots color="0066cc">leather boots</boots>
+</kit>
+</kits>
+<toolrepair>
+<tool>stone sword</tool>
+<tool>diamond pickaxe</tool>
+<tool>iron axe</tool>
+<tool>bow</tool>
+</toolrepair>
+<itemremove>
+<item>arrow</item>
+<item>leather helmet</item>
+<item>leather chestplate</item>
+<item>leather leggings</item>
+<item>leather boots</item>
+<item>wood</item>
+<item>apple</item>
+<item>obsidian</item>
+</itemremove>
+</map>
