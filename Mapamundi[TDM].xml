@@ -59,10 +59,11 @@ Standard Overcast Network Ruleset (oc.tc/rules)
 <kit name="playing" parents="empty">
 <item slot="0" damage="-3000">iron sword</item>
 <item slot="1" damage="-3000" enchantment="arrow infinite:1">bow</item>
-<item slot="2" amount="1">golden apple</item>
-<item slot="3" amount="16">log</item>
-<item slot="4" amount="32">golden carrot</item>
-<item slot="5" amount="3">boat</item>
+<item slot="2" amount="1" name="`4Kill Counter">golden apple</item>
+<item slot="3">iron axe</item>
+<item slot="4" amount="16">log</item>
+<item slot="5" amount="32">golden carrot</item>
+<item slot="6" amount="3">boat</item>
 <item slot="8" amount="1">arrow</item>
 </kit>
 <!--
@@ -90,75 +91,68 @@ Standard Overcast Network Ruleset (oc.tc/rules)
 <team>red</team>
 </allow>
 </filter>
-<filter name="green-only" parents="deny-all">
-<allow>
-<team>blue</team>
-</allow>
-</filter>
 <filter name="blue-only" parents="deny-all">
 <allow>
-<team>red</team>
+<team>blue</team>
 </allow>
 </filter>
 <filter name="protection" parents="deny-players"/>
 </filters>
 <regions>
 <!--  Spawns  -->
-<cylinder name="red_spawn" base="91.5,88,0.5" radius="4" height="0"/>
-<cylinder name="blue_spawn" base="-90.5,88,0.5" radius="4" height="0"/>
-<!--  Team Spawn Protections  -->
-<apply enter="red-only">
-<circle name="red_spawn_prot" center="91.5,0.5" radius="20"/>
-</apply>
-<apply enter="blue-only">
-<circle name="blue_spawn_prot" center="-90.5,0.5" radius="20"/>
-</apply>
+<cylinder name="red_spawn" base="-1127.5,90,-38" radius="2" height="1"/>[d]
+<cylinder name="blue_spawn" base="-1127.5,90,-93.5" radius="2" height="1"/>[d]
 <!--  playing field, apply the playing kit  -->
 <apply kit="playing">
-<circle name="playing" center="0.5,0.5" radius="70"/>
+<cuboid name="playing2" max="-1182,0,13" min="-1072,35,-148"/>[d]
 </apply>
-<!--  outside of playing field, apply the spawn kit  -->
+<!--  outside of playing apply ender  -->
 <apply kit="ender">
 <negative>
-<region name="playing"/>
+<region name="playing2"/>[d]
 </negative>
 </apply>
-<!--  Ender Pearl Refill Stations  -->
+<!--  if they lose it they can get another one -->
 <apply kit="ender">
-<cuboid min="-96,88,-2" max="-95,92,3"/>
-<!--  Blue  -->
-<cuboid min="-2,88,-96" max="3,92,-95"/>
-<!--  Yellow  -->
-<cuboid min="96,88,-2" max="97,92,3"/>
-<!--  Red  -->
-<cuboid min="-2,88,96" max="3,92,97"/>
-<!--  Green  -->
+<cuboid name="blue-ender" min="-1130,89,-92" max="-1125,93,-91"/>[d]
+<cuboid name="red-ender" min="-1124,89,-39" max="-1130,93,-41"/>[d]
 </apply>
 <!--  Apply global block protection  -->
 <apply block="protection">
-<!--
- since there's no way to do "global", this is effectively global 
--->
-<region name="playing"/>
 <negative>
-<region name="playing"/>
+<cuboid name="playing2" max="-1178,35,-142" min="-1078,0,9"/>[d]
 </negative>
 </apply>
 </regions>
 <spawns>
-<spawn team="red" kit="red" yaw="90">
+<spawn team="red" kit="red" yaw="180">[d]
 <region name="red_spawn"/>
 </spawn>
-<spawn team="blue" kit="blue" yaw="-90">
+<spawn team="blue" kit="blue" yaw="0">[d]
 <region name="blue_spawn"/>
 </spawn>
 <default>
-<cylinder base="44.5,8,7.5" radius="4" height="0"/>
+<cylinder base="-1127.5,-66.5" radius="2" height="0"/>[d]
 </default>
 </spawns>
+<maxbuildheight>35</maxbuildheight>
+<portals>
+    <!-- Adds 110 to the players X position, Y, Z, pitch & yaw remain unchanged.-->
+<portal x="102" y="1">
+<cuboid min="-1180,19,-144" max="-1079,15,10"/>
+</portal>
+<portal x="102" z="1">
+<cuboid min="-1076,19,-144" max="-1077,15,11"/>
+</portal>
+<portal y="1" z="-153">
+<cuboid min="-1178,19,11" max="-1077,15,10"/>
+</portal>
+<portal y="1" z="-154">
+<cuboid min="-1178,19,-144" max="-1078,15,-143"/>
+</portal>
+</portals>
 <score>
 <time>10m</time>
-<!--  match length in seconds  -->
 </score>
 <toolrepair>
 <tool>iron sword</tool>
