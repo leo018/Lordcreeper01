@@ -10,6 +10,7 @@
 <team color="blue" max="12">Blue Team</team>
 </teams>
 <maxbuildheight>20</maxbuildheight>
+<!--  i dont remeber if these are done as well  -->
 <spawns>
 <spawn yaw="" team="blue" kit="blue">
 <cylinder base="-619.5,11,259.5" height="0" radius="2"/>
@@ -21,6 +22,7 @@
 <cylinder base="-1326,55,-130" height="0" radius="2"/>
 </default>
 </spawns>
+<!--  Monuments arent done yet  -->
 <destroyables name="Monument" completion="100%" materials="obsidian">
 <destroyable owner="dark_green">
 <cuboid min="" max=""/>
@@ -29,6 +31,7 @@
 <cuboid min="" max=""/>
 </destroyable>
 </destroyables>
+<!--  Regions arent done :(  -->
 <regions>
 <apply block="deny-players" message="Do not break the spawns!">
 <!--  Blue Spawn -->
