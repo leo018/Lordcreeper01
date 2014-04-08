@@ -5,6 +5,9 @@
 <authors>
 <author>felipu_feliu</author>
 </authors>
+<contributors>
+    <contributor contribution="Xml">lord_creeper01</contributor>
+</contributors>
 <teams>
 <team color="dark green" max="12">Green Team</team>
 <team color="blue" max="12">Blue Team</team>
@@ -24,10 +27,10 @@
 </spawns>
 <!--  Monuments arent done yet  -->
 <destroyables name="Monument" completion="100%" materials="obsidian">
-<destroyable owner="dark_green">
+<destroyable owner="green">
 <cuboid min="" max=""/>
 </destroyable>
-<destroyable owner="red">
+<destroyable owner="blue">
 <cuboid min="" max=""/>
 </destroyable>
 </destroyables>
@@ -41,7 +44,7 @@
 </apply>
 <apply block="deny-players" message="You may not build outside of the playing field.">
 <negative>
-<region name="playable"/>
+<rectangle min="" max=""/>
 </negative>
 </apply>
 </regions>
@@ -61,13 +64,13 @@
 </kit>
 <kit name="green" parents="spawn">
 <helmet color="305721">leather helmet</helmet>
-<chestplate color="305721" enchantment="protection projectile:1">leather chestplate</chestplate>
+<chestplate color="305721" enchantment="protection projectile:2">leather chestplate</chestplate>
 <leggings>chain leggins</leggings>
 <boots color="305721">leather boots</boots>
 </kit>
 <kit name="blue" parents="spawn">
 <helmet color="0066cc">leather helmet</helmet>
-<chestplate color="0066cc" enchantment="protection projectile:1">leather chestplate</chestplate>
+<chestplate color="0066cc" enchantment="protection projectile:2">leather chestplate</chestplate>
 <leggings>chain leggings</leggings>
 <boots color="0066cc">leather boots</boots>
 </kit>
