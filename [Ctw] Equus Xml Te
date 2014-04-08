@@ -1,0 +1,121 @@
+<map proto="1.3.1">
+<name>Equus</name>
+<version>1.0.0</version>
+<objective>
+Take the enemy's wool located to either side of the enemy's base and place it in your victory monument.
+</objective>
+<authors>
+<author>lord_creeper01</author>
+</authors>
+<teams>
+<team color="blue" max="15">Blue Team</team>
+<team color="dark red" max="15">Red Team</team>
+</teams>
+<spawns safe="true">
+<spawn kit="spawn" team="red" yaw="-90">[]
+<cylinder base="" height="0" radius="1.5"/>[]
+</spawn>
+<spawn kit="spawn" team="blue" yaw="90">[]
+<cylinder base="1038.5,35,-493.5" height="0" radius="1.5"/>[]
+</spawn>
+<default yaw="-90">[]
+<cylinder base="968.5,67,-493.5" height="0" radius="2"/>[]
+</default>
+</spawns>
+<kits>
+<kit name="spawn">
+<item slot="0">iron sword</item>
+<item slot="1">bow</item>
+<item enchantment="durability:1" slot="2">iron pickaxe</item>
+<item slot="1">iron axe</item>
+<item amount="64" slot="4" damage="1">wood</item>
+<item slot="5">glass</item>
+<item amount="32" slot="6">cooked beef</item>
+<item slot="7" amount="64">arrow</item>
+<item slot="8" amount="64">arrow</item>
+<potion amplifier="1" duration="2">heal</potion>
+<potion duration="4">damage resistance</potion>
+</kit>
+</kits>
+<filters>
+<filter name="only-blue" parents="deny-players deny-world">
+<allow>
+<team>blue</team>
+</allow>
+</filter>
+<filter name="no-void" parents="allow-all">
+<deny>
+<void/>
+</deny>
+</filter>
+<filter name="only-red" parents="deny-players deny-world">
+<allow>
+<team>red</team>
+</allow>
+</filter>
+</filters>
+<regions>
+<!--  blue wool room filters  -->[X]
+<union name="blue-wool-rooms">
+<rectangle max="" min="" name="lime-wool"/>
+<rectangle max="" min="" name="yellow-wool"/>
+</union>
+<apply block="only-blue" use="only-blue">
+<region name="blue-wool-rooms"/>
+</apply>
+<apply enter="only-blue" message="You may not enter your own wool room!">
+<region name="blue-wool-rooms"/>
+</apply>
+<!--  red wool room filters  -->[X]
+<union name="red-wool-rooms">
+<rectangle max="" min="" name="purple-wool"/>
+<rectangle max="" min="" name="pink-wool"/>
+</union>
+<apply block="only-red" use="only-red">
+<region name="red-wool-rooms"/>
+</apply>
+<apply enter="only-red" message="You may not enter your own wool room!">
+<region name="red-wool-rooms"/>
+</apply>
+<!--   Blue portals protection   -->[X]
+<apply block="only-red" message="You may not enter the enemy team's spawn!">
+<cylinder base="1038,34,-494" height="5" name="lower-red-portal" radius="2"/>
+<cylinder base="1038,34,-494" height="5" name="middle-red-portal" radius="2"/>
+<cylinder base="1038,34,-494" height="5" name="Upper-red-portal" radius="2"/>
+</apply>
+<!--   Red portals protection   -->[X]
+<apply block="only-blue" message="You may not block the portals">
+<cylinder base="1038,34,-494" height="5" name="lower-blue-portal" radius="2"/>
+<cylinder base="1038,34,-494" height="5" name="middle-blue-portal" radius="2"/>
+<cylinder base="1038,34,-494" height="5" name="Upper-blue-portal" radius="2"/>
+</apply>
+<!--   void protection   -->
+<apply block="no-void" message="You may not edit the void area">
+<negative>
+<rectangle min="-14,-12" max="15,13"/>
+</negative>
+</apply>
+</regions>
+<maxbuildheight>92</maxbuildheight>
+<wools team="red">
+<wool color="purple">
+<block>897,36,-502</block>
+</wool>
+<wool color="pink">
+<block>897,36,-486</block>
+</wool>
+</wools>
+<wools team="blue">
+<wool color="yellow">
+<block>1038,36,-502</block>
+</wool>
+<wool color="lime">
+<block>1038,36,-486</block>
+</wool>
+</wools>
+<itemremove>
+<item>string</item>
+<item>glowstone dust</item>
+<item>carpet</item>
+</itemremove>
+</map>
