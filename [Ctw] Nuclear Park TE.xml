@@ -1,0 +1,108 @@
+<map proto="1.3.0">
+<name>Nuclear Park TE</name>
+<version>1.0</version>
+<objective>
+Capture all the wools or eliminate the other team.
+</objective>
+<authors>
+<author>iLifting</author>
+</authors>
+<contributors>
+<contributor contribution="Minor help,ideas and feedback">matic0basle</contributor>
+<contributor contribution="Help with wool marking and feedback">ParaSpider</contributor>
+<contributor contribution="Xml">lord_creeper01</contributor>
+</contributors>
+<rules>
+<rule>Do not grab all the wools</rule>
+</rules>
+<teams>
+<team color="red" max="12">Red Team</team>
+<team color="blue" max="12">Blue Team</team>
+</teams>
+<blitz>
+<time>10m</time>
+<lives>2</lives>
+</blitz>
+<timelock>on</timelock>
+<spawns>
+<spawn team="red" kit="red" yaw="90">
+<cylinder base="-262,8,260" radius="2" height="0"/>
+</spawn>
+<spawn team="blue" kit="blue" yaw="-90">
+<cylinder base="-344,8,260" radius="2" height="0"/>
+</spawn>
+<default yaw="90">
+<cylinder base="-303,38,260" radius="2" height="0"/>
+</default>
+</spawns>
+<kits>
+<kit name="spawn">
+<item slot="0" name="Excalibur">stone sword</item>
+<item slot="1" name="Gandiva">bow</item>
+<item slot="2" amount="10">cooked fish</item>
+<item slot="7" amount="16">arrow</item>
+<item slot="8">golden apple</item>
+<helmet>iron helmet</helmet>
+<leggings>iron leggings</leggings>
+</kit>
+<kit name="blue" parents="spawn">
+<chestplate color="0066cc">leather chestplate</chestplate>
+<boots color="0066cc">leather boots</boots>
+</kit>
+<kit name="red" parents="spawn">
+<chestplate color="cd0000">leather chestplate</chestplate>
+<boots color="cd0000">leather boots</boots>
+</kit>
+</kits>
+<toolrepair>
+<tool>stone sword</tool>
+<tool>bow</tool>
+</toolrepair>
+<itemremove>
+<item>iron helmet</item>
+<item>leather chestplate</item>
+<item>iron leggings</item>
+<item>leather boots</item>
+<item>wool</item>
+</itemremove>
+<filters>
+<filter name="deny-dispenser" parents="allow-all">
+<deny>
+<block>dispenser</block>
+</deny>
+</filter>
+<filter name="placetnt" parents="deny-players">
+<allow>
+<block>tnt</block>
+</allow>
+</filter>
+</filters>
+<regions>
+<apply use="deny-dispenser">
+<rectangle min="-oo,-oo" max="oo,oo"/>
+</apply>
+<apply block="placetnt">
+<rectangle min="-oo,-oo" max="oo,oo"/>
+</apply>
+</regions>
+<wools>
+<wool team="red" color="black">
+<block location="-251,9,260"/>
+</wool>
+<wool team="red" color="gray">
+<block location="-259,9,264"/>
+</wool>
+<wool team="red" color="silver">
+<block location="-259,9,256"/>
+</wool>
+<wool team="blue" color="black">
+<block location="-357,9,260"/>
+</wool>
+<wool team="blue" color="gray">
+<block location="-348,9,256"/>
+</wool>
+<wool team="blue" color="silver">
+<block location="-348,9,264"/>
+</wool>
+</wools>
+</map>
