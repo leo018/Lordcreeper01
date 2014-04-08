@@ -106,10 +106,10 @@
 <region name="yellowmonB"/>
 </union>
 <apply block="monument-protection-pink" message="You may not break your own monument!">
-<region name="monuments-pink">
+<region name="monuments-pink"/>
 </apply>
 <apply block="monument-protection-yellow" message="You may your own monument!">
-<region name="monuments-yellow">
+<region name="monuments-yellow"/>
 </apply>
 </apply>
 <apply block="no-breakSB" message="You may not break this block!">
