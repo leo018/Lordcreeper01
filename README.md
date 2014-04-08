@@ -16,3 +16,7 @@ Os invito a que explories el repertorio y veais los distintos xmls
 
 
 -Lord
+
+Pedir un XML
+=================
+![alt tag](http://i.gyazo.com/de3e2652a646f6cc775ed45167c31b6b.png)
