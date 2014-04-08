@@ -1,0 +1,107 @@
+<map proto="1.3.0">
+<name>Alert</name>
+<version>1.0</version>
+<objective>
+Capture all the wools or eliminate the other team.
+</objective>
+<authors>
+<author>iLifting</author>
+</authors>
+<contributors>
+<contributor contribution="Build slave and Paths help">l00katmedude</contributor>
+<contributor contribution="Spawners and feedback">xXFracXx</contributor>
+<contributor contribution="Xml">lord_creeper01</contributor>
+</contributors>
+<rules>
+<rule>Do not grab all the wools</rule>
+</rules>
+<teams>
+<team color="red" max="12">Red Team</team>
+<team color="blue" max="12">Blue Team</team>
+</teams>
+<blitz>
+<time>10m</time>
+<lives>2</lives>
+</blitz>
+<timelock>on</timelock>
+<spawns>
+<spawn team="red" kit="red" yaw="90">
+<cylinder base="95,20,222" radius="2" height="0"/>
+</spawn>
+<spawn team="blue" kit="blue" yaw="-90">
+<cylinder base="-82,20,222" radius="2" height="0"/>
+</spawn>
+<default yaw="0">
+<cylinder base="6,44,131" radius="2" height="0"/>
+</default>
+</spawns>
+<kits>
+<kit name="spawn">
+<item slot="0">iron sword</item>
+<item slot="1">bow</item>
+<item slot="3" amount="12">arrow</item>
+<item slot="7">golden apple</item>
+<item slot="8" amount="8">cooked beef</item>
+<item slot="16" damage="14">carpet</item>
+<item slot="17" damage="3">carpet</item>
+<chesplate>iron chestplate</chestplate>
+<boots>gold boots</leggings>
+</kit>
+<kit name="blue" parents="spawn">
+<helmet color="0066cc">leather helmet</helmet>
+<leggings color="0066cc">leather leggings</leggings>
+</kit>
+<kit name="red" parents="spawn">
+<helmet color="cd0000">leather helmet</helmet>
+<leggings color="cd0000">leather leggings</leggings>
+</kit>
+</kits>
+<toolrepair>
+<tool>iron sword</tool>
+<tool>bow</tool>
+</toolrepair>
+<itemremove>
+<item>leather helmet</item>
+<item>iron chestplate</item>
+<item>leather leggings</item>
+<item>gold boots</item>
+<item>wool</item>
+</itemremove>
+<filters>
+<filter name="deny-dispenser" parents="allow-all">
+<deny>
+<block>dispenser</block>
+</deny>
+</filter>
+<filter name="block-protection" parents="deny-players">
+</filter>
+</filters>
+<regions>
+<apply use="deny-dispenser">
+<rectangle min="-oo,-oo" max="oo,oo"/>
+</apply>
+<apply block="block-protection">
+<rectangle min="-oo,-oo" max="oo,oo"/>
+</apply>
+</regions>
+<wools>
+<wool team="red" color="black">
+<block location="103,21,222"/>
+</wool>
+<wool team="red" color="gray">
+<block location="96,21,247"/>
+</wool>
+<wool team="red" color="silver">
+<block location="96,21,197"/>
+</wool>
+<wool team="blue" color="black">
+<block location="-91,21,222"/>
+</wool>
+<wool team="blue" color="gray">
+<block location="-84,21,197"/>
+</wool>
+<wool team="blue" color="silver">
+<block location="-84,21,247"/>
+</wool>
+</wools>
+</map>
