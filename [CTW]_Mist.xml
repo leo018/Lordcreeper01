@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<map proto="1.3.0">
+<name>Mist</name>
+<version>1.0.0</version>
+<objective>
+Capture all the wools from the center or kill the other team to win
+</objective>
+<authors>
+    <author>iLifting</author>
+</authors>
+<contributors>
+    <contributor contribution="Building slave">matic0basle</contributor>
+    <contributor contribution="Building and theme help">Bamby_</contributor>
+    <contributor contribution="Map spawners and pruning">xXFracXx</contributor>
+    <contributor contribution="Gameplay and building ideas">RedstoneVEVO</contributor>
+    <contributor contribution="Xml">lord_creeper01</contributor>
+</contributors>
+<teams>
+    <team color="dark red" max="12">Red Team</team>
+    <team color="blue" max="12">Blue Team</team>
+</teams>
+<blitz>
+    <time>7m</time>
+    <lives>3</lives>
+    <broadcastLives>true</broadcastLives>
+</blitz>
+<include src="blitz-global.xml"/>
+<spawns>
+    <spawn team="red" kit="red">
+        <point yaw="-90">
+            <cylinder base="0.5,56,21.5" height="0" radius="1"/>
+        </point>
+        <point yaw="-90">
+            <cylinder base="-49.5,56,21.5" height="0" radius="1"/>
+        </point>
+    </spawn>
+    <spawn team="blue" kit="blue">
+        <point yaw="90">
+            <cylinder base="0.5,56,-94.5" height="0" radius="1"/>
+        </point>
+        <point yaw="-90">
+            <cylinder base="-49.5,56,-94.5" height="0" radius="1"/>
+        </point>
+    </spawn>
+    <default yaw="0">
+        <cylinder base="-70.5,53,-36.5" radius="2" height="0"/>
+    </default>
+</spawns>
+<kits>
+    <kit name="spawns">
+        <item slot="0" damage="-3000">stone sword</item>
+        <item slot="1">bow</item>
+        <item slot="2" amount="64">cooked beef</item>
+        <item slot="3">golden apple</item>
+        <item slot="4" amount="32">cooked chicken</item>
+        <item slot="6" damage="10">stained glass</item>
+		<item slot="8">arrow</item>
+        <leggings damage="-3000">chain leggings</leggings>
+        <potion duration="3" ambient="true">heal</potion>
+        <potion duration="3" amplifier="2">damage resistance</potion>
+    </kit>
+    <kit name="red" parents="spawns">
+        <item slot="5" damage="14">stained glass</item>
+        <chestplate damage="-3000" color="cd0000">leather chestplate</chestplate>
+        <boots damage="-3000" color="cd0000">leather boots</boots>
+    </kit>
+    <kit name="blue" parents="spawns">
+        <item slot="5" damage="11">stained glass</item>
+        <chestplate damage="-3000" color="0066cc">leather chestplate</chestplate>
+        <boots damage="-3000" color="0066cc">leather boots</boots>
+    </kit>
+</kits>
+<maxbuildheight>15</maxbuildheight>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+    <tool>arrow</tool>
+</toolrepair>
+<itemremove>
+    <item>carpet</item>
+</itemremove>
+<filters>
+    <filter name="no-void" parents="allow-all">
+        <deny>
+            <void/>
+        </deny>
+    </filter>
+	<filter name="only-spawnkit-blocks" parents="deny-blocks">
+        <allow>
+            <block>stained glass:11</block>
+            <block>stained glass:14</block>
+			<block>stained glass:10</block>
+			<block>carpet</block>
+        </allow>
+    </filter>
+	<!-- IGNORE THIS,IM JUST TESTING SOMETHING -->
+	<filter name="only-spawnkit-blocks2" parents="deny-blocks">
+        <allow>
+            <block>stained glass:11</block>
+            <block>stained glass:14</block>
+			<block>stained glass:10</block>
+			<block>sponge</block>
+			<block>carpet</block>
+        </allow>
+    </filter>
+</filters>
+<regions>
+    <apply block="no-void" message="You may not modify the void area!">
+        <negative>
+            <rectangle name="island-2" min="-1,-28" max="6,-45"/>
+            <rectangle name="island-1" min="-55,-45" max="-48,-28"/>
+			<cylinder name="wool-pit" base="-24.5,6,-35.5" radius="9" height="15"/>
+        </negative>
+    </apply>
+	<apply block="deny-all" message="You may not place blocks in the spawns tubes">
+       	<rectangle name="tube-1" min="-13,23" max="-10,20"/>
+		<rectangle name="tube-2" min="-36,20" max="-39,23"/>
+		<rectangle name="tube-3" min="-39,-96" max="-36,-93"/>
+		<rectangle name="tube-4" min="-10,-93" max="-13,-96"/>
+    </apply>
+    <apply block="deny-all" message="You may not modify the wool pit!">
+        <region name="wool-pit" />
+    </apply>
+	<apply block="only-spawnkit-blocks" message="You may only break glass blocks">
+	    <negative>
+            <region name="island-1" />
+			<region name="island-2" />
+			<region name="wool-pit" />
+			<region name="tube-1" />
+			<region name="tube-2" />
+			<region name="tube-3" />
+			<region name="tube-4" />
+        </negative>
+	</apply>
+    <!-- IGNORE THIS,IM JUST TESTING SOMETHING AGAIN -->
+	<apply block="only-spawnkit-blocks2" message="You may only break glass blocks">
+        <region name="island-1" />
+	    <region name="island-2" />
+		<region name="tube-1" />
+		<region name="tube-2" />
+		<region name="tube-3" />
+		<region name="tube-4" />
+	</apply>
+</regions>
+<portals>
+    <portal x="@2.5" y="10" z="-36.5" yaw="90">
+        <cuboid min="-16,9,-38" max="-15,8,-35"/>
+    </portal>
+	<portal x="@-51.5" y="10" z="-36" yaw="-90">
+        <cuboid min="-34,9,-35" max="-33,8,-38"/>
+    </portal>
+</portals>
+<wools>
+    <wool team="blue" color="yellow">
+        <block location="-27,11,-110"/>
+    </wool>
+	<wool team="blue" color="purple">
+        <block location="-25,11,-110"/>
+    </wool>
+	<wool team="blue" color="green">
+        <block location="-23,11,-110"/>
+    </wool>
+	<wool team="blue" color="brown">
+        <block location="-21,11,-111"/>
+    </wool>
+	<wool team="blue" color="silver">
+        <block location="-29,11,-111"/>
+    </wool>
+	<wool team="red" color="yellow">
+        <block location="-23,11,36"/>
+    </wool>
+	<wool team="red" color="purple">
+        <block location="-25,11,36"/>
+    </wool>
+	<wool team="red" color="green">
+        <block location="-27,11,36"/>
+    </wool>
+	<wool team="red" color="brown">
+        <block location="-29,11,37"/>
+    </wool>
+	<wool team="red" color="silver">
+        <block location="-21,11,37"/>
+    </wool>
+</wools>
+</map>
