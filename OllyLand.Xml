@@ -1,0 +1,92 @@
+<map proto="1.3.2">
+<name>OllyLand</name>
+<version>1.0.0</version>
+<objective>Get the most kills after 5 minutes!</objective>
+<authors>
+<author>iLifting</author>
+<author>lord_creeper01</author>
+</authors>
+<contributors>
+    <contributor>_IQ</contributor>
+	<contributor>Bamby_</contributor>
+</contributors>
+<teams>
+<team color="gold" max="20" max-overfill="22">Carrots</team>
+<team color="green" max="20" max-overfill="22">Melons</team>
+</teams>
+<score>
+<time>5m</time>
+</score>
+<rage/>
+<kits>
+<kit name="spawn">
+<item slot="4" amount="2">arrow</item>
+<potion duration="oo" amplifier="-4" ambient="true">health boost</potion>
+<potion duration="5" amplifier="25" ambient="true">heal</potion>
+<potion duration="5" amplifier="25" ambient="true">damage resistance</potion>
+</kit>
+<kit name="carrot" parents="spawn">
+<item slot="0" enchantment="damage all:100" name="`6Olly">carrot</item>
+<item slot="1" enchantment="arrow damage:10" damage="-3000" name="`6Carrot Launcher">bow</item>
+<helmet color="008000" name="`6Carrot helmet">leather helmet</helmet>
+<chesplate color="ffa500" name="`6Carrot chesplate">leather chestplate</chesplate>
+<leggings color="ffa500" name="`6Carrot leggings">leather leggings</leggings>
+<boots color="ffa500" name="`6Carrot boots">leather boots</boots>
+</kit>
+<kit name="melon" parents="spawn">
+<item slot="0" enchantment="damage all:100" name="`2LonelyHornet">carrot</item>
+<item slot="1" enchantment="arrow damage:10" damage="-3000" name="`2Melon Launcher">bow</item>
+<helmet color="008000" name="`2Melon helmet">leather helmet</helmet>
+<chesplate color="008000" name="`2Melon chestplate">leather chestplate</chesplate>
+<leggings color="e50000" name="`2Melon leggings">leather leggings</leggings>
+<boots color="008000" name="`2Melon boots">leather boots</boots>
+</kit>
+</kits>
+<regions>
+<apply block="deny-all">
+<rectangle min="-oo,-oo" max="oo,oo"/>
+</apply>
+<apply players="deny-all">
+<negative>
+<cuboid name="playable2" max="oo,0,oo" min="-oo,24,oo"/>
+</negative>
+</apply>
+</regions>
+<spawns>
+<spawn team="red" kit="carrot" yaw="-90">
+<cylinder base="-94.5,9,-93.5" radius="2" height="0"/>
+</spawn>
+<spawn team="green" kit="melon" yaw="90">
+<cylinder base="48.5,10,-93.5" radius="2" height="0"/>
+</spawn>
+<default yaw="0">
+<cylinder base="-22,66,-92" radius="2" height="0"/>
+</default>
+</spawns>
+<itemremove>
+<item>leather helmet</item>
+<item>lether chestplate</item>
+<item>leather leggings</item>
+<item>leather boots</item>
+<item>carrot</item>
+<item>arrow</item>
+<item>melon</item>
+</itemremove>
+<toolrepair>
+<tool>bow</tool>
+</toolrepair>
+<killreward>
+<item>arrow</item>
+</killreward>
+<modifybowprojectile>
+<projectile>TNTPrimed</projectile>
+<velocityMod>2.0</velocityMod>
+</modifybowprojectile>
+<tnt>
+<blockdamage>false</blockdamage>
+</tnt>
+<hunger>
+<depletion>off</depletion>
+</hunger>
+<autorespawn/>
+</map>
