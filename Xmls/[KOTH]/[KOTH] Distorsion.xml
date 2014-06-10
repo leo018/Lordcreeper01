@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<map proto="1.3.0">
+<name>Distorsion</name>
+<version>1.0.0</version>
+<objective>Capture the center point in order to win!</objective>
+<authors>
+    <author>lord_creeper01</author>
+</authors>
+<contributors>
+    <contributor contribution="Server">iLifting</contributor>
+</contributors>
+<teams>
+    <team color="gold" max="20" max-overfill="25">Orange Team</team>
+    <team color="green" max="20" max-overfill="25">Lime Team</team>
+</teams>
+<spawns>
+    <spawn team="orange" kit="orange" yaw="-90">
+        <cylinder base="-71.5,14,0.5" radius="3" height="0"/>
+    </spawn>
+    <spawn team="lime" kit="lime" yaw="90">
+        <cylinder base="72.5,14,0.5" radius="3" height="0"/>
+    </spawn>
+    <default yaw="50" kit="potion">
+        <cylinder base="0.5,58,0.5" radius="2" height="0"/>
+    </default>
+</spawns>
+<kits>
+    <kit name="spawn">
+        <item slot="0">stone sword</item>
+        <item slot="1">bow</item>
+        <item slot="2" amount="16">arrow</item>
+        <item slot="3" amount="32">golden carrot</item>
+		<item slot="4" amount="2">golden apple</item>
+        <item slot="8">milk bucket</item>
+        <boots damage="-3000">diamond boots</boots>
+        <helmet damage="-3000">diamond helmet</helmet>
+        <potion amplifier="10" duration="4">heal</potion>
+        <potion amplifier="25" duration="4">damage resistance</potion>
+        <potion amplifier="1" duration="oo" ambient="true">night vision</potion>
+        <potion amplifier="2" duration="oo" ambient="true">speed</potion>
+        <potion amplifier="3" duration="oo" ambient="true">jump</potion>
+    </kit>
+    <kit name="potion">
+        <potion amplifier="1" duration="oo" ambient="true">night vision</potion>
+    </kit>
+    <kit name="orange" parents="spawn">
+        <chesplate color="e69500" damage="-3000">leather chestplate</chesplate>
+    </kit>
+    <kit name="lime" parents="spawn">
+        <chesplate color="ace600" damage="-3000">leather chestplate</chesplate>
+    </kit>
+</kits>
+<king>
+<hills>
+        <hill name="Hill" capture-time="10s" points="1">
+            <capture><cylinder name="hill" base="0.5,16,0.5" radius="8.5" height="1"/></capture>
+            <progress><cylinder name="hill-2" base="0.5,12,0.5" radius="8" height="8"/></progress>
+            <!-- hack -->
+            <captured><cuboid min="0,0,0" max="0,0,0"/></captured>
+        </hill>
+    </hills>
+</king>
+<score>
+    <limit>300</limit>
+    <king/>
+</score>
+<filters>
+    <filter name="no-beacon">
+        <deny>
+            <block>beacon</block>
+        </deny>
+    </filter>
+</filters>
+<regions>
+    <apply block="deny-all" use="no-beacon">
+        <rectangle name="playable" min="-oo,-oo" max="oo,oo"/>
+    </apply>
+</regions>
+<portals>
+    <portal y="40" sound="false">
+        <cuboid min="oo,2,oo" max="-oo,1,-oo"/>
+    </portal>
+</portals>
+<disabledamage>
+    <damage>fall</damage>
+</disabledamage>
+<toolrepair>
+    <tool>bow</tool>
+    <tool>stone sword</tool>
+</toolrepair>
+<itemremove>
+    <item>golden carrot</item>
+    <item>lether chestplate</item>
+    <item>diamond helmet</item>
+    <item>diamond boots</item>
+    <item>golden apple</item>
+</itemremove>
+<killreward>
+    <item amount="1">golden apple</item>
+    <item amount="1">tnt</item>
+    <item amount="16">arrow</item>
+</killreward>
+<tnt>
+    <instantignite>on</instantignite>
+    <blockdamage>false</blockdamage>
+</tnt>
+</map>

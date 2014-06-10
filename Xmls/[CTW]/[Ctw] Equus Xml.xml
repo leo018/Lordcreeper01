@@ -1,3 +1,6 @@
+
+<!--  Filters seem to break if using no-tnt with the void one  -->
+<!--  Will do regions manually in order to make it work properly  -->
 <map proto="1.3.1">
 <name>Equus</name>
 <version>1.0.0</version>
@@ -55,7 +58,7 @@ Take the enemy's wool located to either side of the enemy's base and place it in
 </filter>
 </filters>
 <regions>
-<!--  blue wool room filters  -->[X]
+<!--  blue wool room filters  -->
 <union name="blue-wool-rooms">
 <rectangle max="" min="" name="lime-wool"/>
 <rectangle max="" min="" name="yellow-wool"/>
@@ -66,7 +69,7 @@ Take the enemy's wool located to either side of the enemy's base and place it in
 <apply enter="only-blue" message="You may not enter your own wool room!">
 <region name="blue-wool-rooms"/>
 </apply>
-<!--  red wool room filters  -->[X]
+<!--  red wool room filters  -->
 <union name="red-wool-rooms">
 <rectangle max="" min="" name="purple-wool"/>
 <rectangle max="" min="" name="pink-wool"/>
@@ -77,13 +80,13 @@ Take the enemy's wool located to either side of the enemy's base and place it in
 <apply enter="only-red" message="You may not enter your own wool room!">
 <region name="red-wool-rooms"/>
 </apply>
-<!--   Blue portals protection   -->[X]
+<!--   Blue portals protection   -->
 <apply block="only-red" message="You may not enter the enemy team's spawn!">
 <cylinder base="1038,34,-494" height="5" name="lower-red-portal" radius="2"/>
 <cylinder base="1038,34,-494" height="5" name="middle-red-portal" radius="2"/>
 <cylinder base="1038,34,-494" height="5" name="Upper-red-portal" radius="2"/>
 </apply>
-<!--   Red portals protection   -->[X]
+<!--   Red portals protection   -->
 <apply block="only-blue" message="You may not block the portals">
 <cylinder base="1038,34,-494" height="5" name="lower-blue-portal" radius="2"/>
 <cylinder base="1038,34,-494" height="5" name="middle-blue-portal" radius="2"/>
