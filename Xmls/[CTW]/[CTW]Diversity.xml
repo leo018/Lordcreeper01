@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<map proto="1.3.3">
+<name>Diversity</name>
+<version>1.0.0</version>
+<objective>
+Take the enemy's wool located to either side of the enemy's base and place it in your victory monument.
+</objective>
+<authors>
+    <author contribution="Buildings, Spawners and design">_CubeRoot</author>
+    <author contribution="Layout, theme and design">C4477</author>
+</authors>
+<contributors>
+    <contributor contribution="Xml">lord_creeper01</contributor>
+</contributors>
+<teams>
+    <team color="blue" max="20">Blue Team</team>
+    <team color="dark red" max="20">Red Team</team>
+</teams>
+<spawns>
+    <spawns kit="spawn">
+    <spawn team="blue" yaw="0">
+        <cylinder base="-94,80,-157" radius="1" height="0"/>
+    </spawn>
+    <spawn team="red" yaw="180">
+        <cylinder base="-94,80,16" radius="1" height="0"/>
+    </spawn>
+    </spawns>
+    <default yaw="-90">
+        <cylinder base="-133.5,91,-70.5" radius="2" height="0"/>
+    </default>
+</spawns>
+<kits>
+    <kit name="spawn">
+        <item slot="0">iron sword</item>
+        <item slot="1">bow</item>
+        <item slot="2" enchantment="durability:1">iron pickaxe</item>
+        <item slot="3" amount="32">cooked beef</item>
+        <item slot="4" amount="64">glass</item>        
+		<item slot="5" amount="32" damage="2">log</item>
+        <item slot="8" amount="64">arrow</item>
+		<item slot="35" amount="64">arrow</item>
+    </kit>
+    <kit name="red" parents="spawn">
+        <helmet color="db1818" damage="-3000">leather helmet</helmet>
+        <chestplate color="db1818" enchantment="protection projectile:1" damage="-3000">leather chestplate</chestplate>
+        <leggings color="db1818" damage="-3000">leather leggings</leggings>
+        <boots color="db1818" damage="-3000">leather boots</boots>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <helmet color="3c1cd9" damage="-3000">leather helmet</helmet>
+        <chestplate color="3c1cd9" enchantment="protection projectile:1" damage="-3000">leather chestplate</chestplate>
+        <leggings color="3c1cd9" damage="-3000">leather leggings</leggings>
+       <boots color="3c1cd9" damage="-3000">leather boots</boots>
+    </kit>
+</kits>
+<filters>
+    <filter name="no-void">
+        <deny>
+            <void/>
+        </deny>
+    </filter>
+    <filter name="only-red">
+        <team>red</team>
+    </filter>
+    <filter name="only-blue">
+        <team>blue</team>
+    </filter>
+    <filter name="only-red-usage">
+        <not>
+            <all>
+                <any>
+                    <block>chest</block>
+                    <block>workbench</block>
+                </any>
+                <team>blue</team>
+            </all>
+        </not>
+    </filter>
+    <filter name="only-blue-usage">
+        <not>
+            <all>
+                <any>
+                    <block>chest</block>
+                    <block>workbench</block>
+                </any>
+                <team>red</team>
+            </all>
+        </not>
+    </filter>
+    <filter name="deny-some" parents="deny-world">
+        <deny>
+            <any>
+                <block>mob spawner</block>
+            </any>
+        </deny>
+    </filter>
+</filters>
+<regions>
+    <union name="blue-wools">
+        <rectangle name="orange-wool" max="-129,22" min="-119,13" />
+        <rectangle name="green-wool" max="-59,22" min="-69,13" />
+    </union>
+    <union name="red-wools">
+        <rectangle name="yellow-wool" max="-129,-154" min="-119,-163" />
+        <rectangle name="purple-wool" max="-59,-163" min="-69,-154" />
+    </union>
+    <!--  void protection  -->
+    <apply block="no-void" message="You may not edit the void area">
+        <negative>
+           <rectangle min="-119,-11" max="-69,-130"/>
+        </negative>
+    </apply>
+    <!--  wool room rules  -->
+    <apply block="only-blue" use="only-blue-usage">
+        <region name="blue-wools" />
+    </apply>
+    <apply enter="only-blue" message="You may not enter your own wool room.">
+        <region name="blue-wools" />
+    </apply>
+    <apply block="only-red" use="only-red-usage">
+        <region name="red-wools" />
+    </apply>
+    <apply enter="only-red" message="You may not enter your own wool room.">
+        <region name="red-wools" />
+    </apply>
+    <!--  Spawn protection  -->
+    <apply block="deny-all" message="You may not edit the spawns">
+        <rectangle name="blue-spawn" max="-89,-148" min="-99,-159"/>
+        <rectangle name="red-spawn" max="-99,7" min="-89,18" />
+    </apply>
+    <!--  wool monuments  -->
+    <apply block="deny-all" message="You may not edit the wool monument">
+        <cuboid name="red-wool-monument" max="-91,68,-21" min="-97,75,-24"/>
+        <cuboid name="bloe-wool-monument" max="-91,68,-120" min="-97,75,-117"/>
+    </apply>
+    <!--  spawners protection  -->
+    <apply block="deny-some" message="You may not break the spawners!">
+        <cuboid min="-102,65,-71" max="-86,69,-70"/>
+    </apply>
+</regions>
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>iron pickaxe</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>redstone block</item>
+    <item>redstone lamp on</item>
+    <item>redstone lamp off</item>
+    <item>cooked beef</item>
+    <item>apple</item>
+    <item>sapling</item>
+    <item>leather helmet</item>
+    <item>leather chesplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+</itemremove>
+<maxbuildheight>90</maxbuildheight>
+<wools>
+    <wool team="red" color="purple">
+        <block location="-94,71,-23"/>
+    </wool>
+    <wool team="red" color="yellow">
+        <block location="-95,71,-23"/>
+    </wool>
+    <wool team="blue" color="lime">
+        <block location="-94,71,-119"/>
+    </wool>
+    <wool team="blue" color="orange">
+        <block location="-95,71,-119"/>
+    </wool>
+</wools>
+</map>

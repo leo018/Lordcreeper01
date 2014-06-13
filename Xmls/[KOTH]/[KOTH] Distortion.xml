@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<map proto="1.3.0">
-<name>Distorsion</name>
+<map proto="1.3.3">
+<name>Distortion</name>
 <version>1.0.0</version>
 <objective>Capture the center point in order to win!</objective>
 <authors>

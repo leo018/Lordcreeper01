@@ -1,7 +1,7 @@
 
 <!--  Filters seem to break if using no-tnt with the void one  -->
 <!--  Will do regions manually in order to make it work properly  -->
-<map proto="1.3.1">
+<map proto="1.3.3">
 <name>Equus</name>
 <version>1.0.0</version>
 <objective>
